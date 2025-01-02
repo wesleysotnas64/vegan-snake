@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Head : MonoBehaviour
 {
+    public Sprite headCloseMounth; //Default
+    public Sprite headOpenMounth; //Open Mounth
     public Vector3 direction;
     public Vector3 lastDirection;
     public Vector3 lastPosition;
@@ -67,6 +69,16 @@ public class Head : MonoBehaviour
     {
         tail.GrowTail();
         food.SetNewPosition();
+    }
+
+    public void OpenMounth()
+    {
+        GetComponent<SpriteRenderer>().sprite = headOpenMounth;
+    }
+
+    public void CloseMounth()
+    {
+        GetComponent<SpriteRenderer>().sprite = headCloseMounth;
     }
 
     void OnTriggerEnter2D(Collider2D col)
