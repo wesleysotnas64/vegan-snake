@@ -13,6 +13,7 @@ public class Head : MonoBehaviour
     public float currentTime;
     public Tail tail;
     public Food food;
+    public Fruit fruit;
 
     void Start()
     {
@@ -72,6 +73,13 @@ public class Head : MonoBehaviour
         food.SetNewPosition();
     }
 
+    private void EatFruit()
+    {
+        tail.AddPositionFoodAtTrail(fruit.transform.position);
+        tail.GrowTail();
+        fruit.SendToStandby();
+    }
+
     public void OpenMounth()
     {
         GetComponent<SpriteRenderer>().sprite = headOpenMounth;
@@ -90,6 +98,10 @@ public class Head : MonoBehaviour
         {
             case "Food":
                 EatFood();
+                break;
+
+            case "Fruit":
+                EatFruit();
                 break;
             
             default:
