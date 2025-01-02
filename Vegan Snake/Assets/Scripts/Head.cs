@@ -67,6 +67,7 @@ public class Head : MonoBehaviour
 
     private void EatFood()
     {
+        tail.AddPositionFoodAtTrail(food.transform.position);
         tail.GrowTail();
         food.SetNewPosition();
     }

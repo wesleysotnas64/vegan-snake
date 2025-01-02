@@ -483,7 +483,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -680,12 +680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e3bbd00fcc9b34fb7937369ce987c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headSpriteCloseMounth: {fileID: 21300000, guid: b82fb4a9570662a4ba904f3ce31bffea, type: 3}
-  headSpriteOpenMounth: {fileID: 21300000, guid: 69692c4d4abd69d48b838a33517e6df1, type: 3}
+  headCloseMounth: {fileID: 21300000, guid: b82fb4a9570662a4ba904f3ce31bffea, type: 3}
+  headOpenMounth: {fileID: 21300000, guid: 69692c4d4abd69d48b838a33517e6df1, type: 3}
   direction: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
-  moveTime: 0.5
+  moveTime: 0.15
   currentTime: 0
   tail: {fileID: 1609528773}
   food: {fileID: 56515509}
@@ -821,9 +821,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3578485fa0c0b41bdb36000be3d77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tail: []
-  blockTail: {fileID: 7008821345591710215, guid: 9db0fe6c834b36f4d9837907ffe74098, type: 3}
   head: {fileID: 1217507562}
+  blockTail: {fileID: 7008821345591710215, guid: 9db0fe6c834b36f4d9837907ffe74098, type: 3}
+  tail: []
+  emptyBelly: {fileID: 21300000, guid: 443e5912b8c649940994eb1bf3953abe, type: 3}
+  fullBelly: {fileID: 21300000, guid: df8b7de9e8b07474f88ad8b1c57d5e30, type: 3}
+  trailFood: []
 --- !u!1 &1948253650
 GameObject:
   m_ObjectHideFlags: 0

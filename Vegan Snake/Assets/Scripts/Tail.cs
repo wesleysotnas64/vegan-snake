@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class Tail : MonoBehaviour
 {
-    public List<GameObject> tail;
-    public GameObject blockTail;
     public Head head;
+    public GameObject blockTail;
+    public List<GameObject> tail;
+    public Sprite emptyBelly;
+    public Sprite fullBelly;
+    public List<Vector3> trailFood;
+
     void Start()
     {
         tail = new();
+        trailFood = new();
     }
 
     public void GrowTail()
@@ -28,7 +33,24 @@ public class Tail : MonoBehaviour
             tail.RemoveAt(0);
             tail.Add(auxBlockTail);
             tail.Last().transform.position = head.lastPosition;
+
+            int i = trailFood.FindIndex(v => v == tail.Last().transform.position);
+            
+            if (i != -1)
+            {
+                trailFood.RemoveAt(i);
+                tail.Last().GetComponent<SpriteRenderer>().sprite = fullBelly;
+            }
+            else
+            {
+                tail.Last().GetComponent<SpriteRenderer>().sprite = emptyBelly;
+            }
         }
+    }
+
+    public void AddPositionFoodAtTrail(Vector3 pos)
+    {
+        trailFood.Add(pos);
     }
 
 }
