@@ -458,7 +458,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6999999, g: 1, b: 0.5, a: 0}
+  m_BackGroundColor: {r: 0.7, g: 1, b: 0.39999998, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -685,7 +685,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   lastDirection: {x: 0, y: 0, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
-  moveTime: 0.15
+  moveTime: 0.1
   currentTime: 0
   tail: {fileID: 1609528773}
   food: {fileID: 56515509}
