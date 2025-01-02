@@ -13,14 +13,10 @@ public class Tail : MonoBehaviour
         tail = new();
     }
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.G)) GrowTail();
-    }
-
     public void GrowTail()
     {
         GameObject bt = Instantiate(blockTail);
+        bt.transform.parent = transform;
         tail.Add(bt);
     }
 

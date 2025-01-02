@@ -10,6 +10,8 @@ public class Head : MonoBehaviour
     public float moveTime;
     public float currentTime;
     public Tail tail;
+    public Food food;
+
     void Start()
     {
         currentTime = 0.0f;
@@ -58,6 +60,27 @@ public class Head : MonoBehaviour
             transform.up = direction;
 
             tail.MoveTail();
+        }
+    }
+
+    private void EatFood()
+    {
+        tail.GrowTail();
+        food.SetNewPosition();
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        string tag = col.gameObject.tag;
+
+        switch(tag)
+        {
+            case "Food":
+                EatFood();
+                break;
+            
+            default:
+                break;
         }
     }
 }
