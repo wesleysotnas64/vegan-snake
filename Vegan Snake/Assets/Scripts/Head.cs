@@ -9,6 +9,7 @@ public class Head : MonoBehaviour
     public Vector3 lastPosition;
     public float moveTime;
     public float currentTime;
+    public Tail tail;
     void Start()
     {
         currentTime = 0.0f;
@@ -55,7 +56,8 @@ public class Head : MonoBehaviour
             lastPosition = transform.position;
             transform.position += direction;
             transform.up = direction;
-            
+
+            tail.MoveTail();
         }
     }
 }
