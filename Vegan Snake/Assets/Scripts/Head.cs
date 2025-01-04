@@ -80,6 +80,12 @@ public class Head : MonoBehaviour
         fruit.SendToStandby();
     }
 
+    private void StopMove()
+    {
+        direction = Vector3.zero;
+        // moveTime *= 0.5f;
+    }
+
     public void OpenMounth()
     {
         GetComponent<SpriteRenderer>().sprite = headOpenMounth;
@@ -102,6 +108,14 @@ public class Head : MonoBehaviour
 
             case "Fruit":
                 EatFruit();
+                break;
+
+            case "Wall":
+                StopMove();
+                break;
+
+            case "Tail":
+                StopMove();
                 break;
             
             default:
