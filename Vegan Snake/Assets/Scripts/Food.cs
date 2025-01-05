@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
+    public FruitCount fruitCount;
 
     void Start()
     {
         SetNewPosition();
+        fruitCount = GameObject.Find("FruitsManager").GetComponent<FruitCount>();
+    }
+
+    public void Eat()
+    {
+        SetNewPosition();
+        fruitCount.AddFruit(0);
     }
 
     public void SetNewPosition()

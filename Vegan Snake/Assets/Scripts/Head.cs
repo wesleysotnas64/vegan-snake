@@ -70,14 +70,14 @@ public class Head : MonoBehaviour
     {
         tail.AddPositionFoodAtTrail(food.transform.position);
         tail.GrowTail();
-        food.SetNewPosition();
+        food.Eat();
     }
 
     private void EatFruit()
     {
         tail.AddPositionFoodAtTrail(fruit.transform.position);
         tail.GrowTail();
-        fruit.SendToStandby();
+        fruit.Eat();
     }
 
     private void StopMove()

@@ -12,7 +12,9 @@ public class Fruit : MonoBehaviour
     public float currentTime;
     public bool inDraw;
     public bool inStandby;
+    public int spriteIndex;
     
+    public FruitCount fruitCount;
     
     void Start()
     {
@@ -20,11 +22,19 @@ public class Fruit : MonoBehaviour
         currentTime = 0.0f;
         inStandby = true;
         inDraw = false;
+
+        fruitCount = GameObject.Find("FruitsManager").GetComponent<FruitCount>();
     }
 
     void Update()
     {
         SwitchState();
+    }
+
+    public void Eat()
+    {
+        SendToStandby();
+        fruitCount.AddFruit(spriteIndex+1);
     }
 
     public void SwitchState()
@@ -56,8 +66,8 @@ public class Fruit : MonoBehaviour
 
     public void DrawFruit()
     {
-        int i = Random.Range(0, fuitsSprites.Count);
-        spriteRenderer.sprite = fuitsSprites[i];
+        spriteIndex = Random.Range(0, fuitsSprites.Count);
+        spriteRenderer.sprite = fuitsSprites[spriteIndex];
         SetNewPosition();
     }
 
