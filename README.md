@@ -54,7 +54,8 @@ Aqui estão algumas capturas de tela do *Vegan Snake*!
 *Adicione um print da tela inicial aqui.*  
 
 ### Cobra em Ação  
-*Adicione um print da cobra comendo uma fruta aqui.*  
+![image](https://github.com/user-attachments/assets/9df117f4-4874-42f6-8b11-adedaf8c3198)
+  
 
 ### Tela de Game Over  
 *Adicione um print do momento em que o jogador perde e a pontuação é exibida.* 
