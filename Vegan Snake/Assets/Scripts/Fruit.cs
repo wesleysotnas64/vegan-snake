@@ -78,8 +78,8 @@ public class Fruit : MonoBehaviour
     {
         Vector3 newPosition = new();
 
-        int x = Random.Range(-3, 3);
-        int y = Random.Range(-3, 3);
+        int x = Random.Range(-15, 7);
+        int y = Random.Range(-8, 6);
 
         newPosition.x = x;
         newPosition.y = y;
@@ -98,6 +98,14 @@ public class Fruit : MonoBehaviour
                 SetNewPosition();
                 break;
             
+            case "Food":
+                SetNewPosition();
+                break;
+
+            case "Wall":
+                SetNewPosition();
+                break;
+
             default:
                 break;
         }

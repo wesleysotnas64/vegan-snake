@@ -14,8 +14,8 @@ public class Food : MonoBehaviour
     {
         Vector3 newPosition = new();
 
-        int x = Random.Range(-3, 3);
-        int y = Random.Range(-3, 3);
+        int x = Random.Range(-15, 7);
+        int y = Random.Range(-8, 6);
 
         newPosition.x = x;
         newPosition.y = y;
@@ -31,6 +31,14 @@ public class Food : MonoBehaviour
         switch(tag)
         {
             case "Tail":
+                SetNewPosition();
+                break;
+
+            case "Fruit":
+                SetNewPosition();
+                break;
+
+            case "Wall":
                 SetNewPosition();
                 break;
             
