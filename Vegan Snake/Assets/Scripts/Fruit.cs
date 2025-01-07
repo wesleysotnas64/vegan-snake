@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
     public List<Sprite> fuitsSprites;
     public SpriteRenderer spriteRenderer;
+    public TMP_Text textFruitTime;
 
     public float drawTime;
     public float standbyTime;
@@ -19,7 +21,7 @@ public class Fruit : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        currentTime = 0.0f;
+        currentTime = standbyTime;
         inStandby = true;
         inDraw = false;
 
@@ -29,6 +31,20 @@ public class Fruit : MonoBehaviour
     void Update()
     {
         SwitchState();
+        UpdateFruitTimeOnCanvas();
+    }
+
+    private void UpdateFruitTimeOnCanvas()
+    {
+        if(inDraw)
+        {
+            // Update do canvas
+            textFruitTime.text = $"Fruit Time: {currentTime.ToString("F2")}";
+        }
+        else
+        {
+            textFruitTime.text = $"Fruit Time: {0.ToString("F2")}";
+        }
     }
 
     public void Eat()
@@ -39,12 +55,12 @@ public class Fruit : MonoBehaviour
 
     public void SwitchState()
     {
-        currentTime += Time.deltaTime;
+        currentTime -= Time.deltaTime;
         if(inStandby)
         {
-            if (currentTime >= drawTime)
+            if (currentTime <= 0)
             {
-                currentTime = 0.0f;
+                currentTime = drawTime;
                 DrawFruit();
                 inDraw = true;
                 inStandby = false;
@@ -52,9 +68,9 @@ public class Fruit : MonoBehaviour
         }
         else if(inDraw)
         {
-            if (currentTime >= standbyTime)
+            if (currentTime <= 0)
             {
-                currentTime = 0.0f;
+                currentTime = standbyTime;
                 StandbyFruit();
                 inDraw = false;
                 inStandby = true;
@@ -79,7 +95,7 @@ public class Fruit : MonoBehaviour
     public void SendToStandby()
     {
         transform.position = new Vector3(20, 20, 0);
-        currentTime = 0.0f;
+        currentTime = standbyTime;
         inStandby = true;
         inDraw = false;
     }

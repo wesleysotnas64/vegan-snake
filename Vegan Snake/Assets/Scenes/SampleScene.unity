@@ -7709,6 +7709,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad1d1cd1958cc8e4193ed8903b35e7dd, type: 3}
   - {fileID: 21300000, guid: 8d126ecfdf42fe546a17004a38c1967b, type: 3}
   spriteRenderer: {fileID: 0}
+  textFruitTime: {fileID: 1825992000}
   drawTime: 7
   standbyTime: 7
   currentTime: 0
