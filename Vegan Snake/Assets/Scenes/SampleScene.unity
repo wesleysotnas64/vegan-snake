@@ -980,6 +980,8 @@ MonoBehaviour:
   - {fileID: 1032704609}
   - {fileID: 714260608}
   - {fileID: 1562361945}
+  textScore: {fileID: 858959788}
+  totalScore: 0
 --- !u!4 &177376673
 Transform:
   m_ObjectHideFlags: 0

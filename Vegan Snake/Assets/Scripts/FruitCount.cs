@@ -6,15 +6,25 @@ public class FruitCount : MonoBehaviour
 {
     public int[] fruitsQuantity;
     public List<TMP_Text> textFruitsQuantity;
+    public TMP_Text textScore;
+    public int totalScore;
+
     void Start()
     {
         fruitsQuantity = new int[8];
+        totalScore = 0;
+
+        UpdateScoreOnCanvas();
         UpdatePanelFruitOnCanvas();
     }
 
     public void AddFruit(int fruit)
     {
         fruitsQuantity[fruit]++;
+        if(fruit == 0) totalScore++;
+        else totalScore += 10;
+
+        UpdateScoreOnCanvas();
         UpdatePanelFruitOnCanvas();
     }
 
@@ -24,5 +34,10 @@ public class FruitCount : MonoBehaviour
         {
             textFruitsQuantity[i].text = $" X {fruitsQuantity[i]}";
         }
+    }
+
+    private void UpdateScoreOnCanvas()
+    {
+        textScore.text = $"Score: {totalScore}";
     }
 }
