@@ -14,6 +14,7 @@ public class Head : MonoBehaviour
     public Tail tail;
     public Food food;
     public Fruit fruit;
+    public GameObject zzzzz;
 
     void Start()
     {
@@ -83,7 +84,8 @@ public class Head : MonoBehaviour
     private void StopMove()
     {
         direction = Vector3.zero;
-        // moveTime *= 0.5f;
+        moveTime = 0.03f;
+        zzzzz.transform.position = transform.position;
     }
 
     public void OpenMounth()
