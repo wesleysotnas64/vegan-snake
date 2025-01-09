@@ -11,6 +11,7 @@ public class Head : MonoBehaviour
     public Vector3 lastPosition;
     public float moveTime;
     public float currentTime;
+    public bool moveIsActie;
     public Tail tail;
     public Food food;
     public Fruit fruit;
@@ -19,6 +20,7 @@ public class Head : MonoBehaviour
     void Start()
     {
         currentTime = 0.0f;
+        moveIsActie = false;
     }
 
     void Update()
@@ -29,21 +31,24 @@ public class Head : MonoBehaviour
 
     public void SelectDirection()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        if(moveIsActie)
         {
-            direction = new Vector3(0, 1, 0);
-        }
-        else if(Input.GetKeyDown(KeyCode.S))
-        {
-            direction = new Vector3(0, -1, 0);
-        }
-        else if(Input.GetKeyDown(KeyCode.D))
-        {
-            direction = new Vector3(1, 0, 0);
-        }
-        else if(Input.GetKeyDown(KeyCode.A))
-        {
-            direction = new Vector3(-1, 0, 0);
+            if(Input.GetKeyDown(KeyCode.W))
+            {
+                direction = new Vector3(0, 1, 0);
+            }
+            else if(Input.GetKeyDown(KeyCode.S))
+            {
+                direction = new Vector3(0, -1, 0);
+            }
+            else if(Input.GetKeyDown(KeyCode.D))
+            {
+                direction = new Vector3(1, 0, 0);
+            }
+            else if(Input.GetKeyDown(KeyCode.A))
+            {
+                direction = new Vector3(-1, 0, 0);
+            }
         }
     }
 
@@ -61,7 +66,7 @@ public class Head : MonoBehaviour
             lastDirection = direction;
             lastPosition = transform.position;
             transform.position += direction;
-            transform.up = direction;
+            transform.up = moveIsActie ? direction : new Vector3(0,-1,0);
 
             tail.MoveTail();
         }
@@ -85,12 +90,16 @@ public class Head : MonoBehaviour
     {
         direction = Vector3.zero;
         moveTime = 0.03f;
+        transform.up = new Vector3(0,-1,0);
+        moveIsActie = false;
+        CloseMounth();
         zzzzz.transform.position = transform.position;
     }
 
     public void OpenMounth()
     {
-        GetComponent<SpriteRenderer>().sprite = headOpenMounth;
+        if(moveIsActie)
+            GetComponent<SpriteRenderer>().sprite = headOpenMounth;
     }
 
     public void CloseMounth()

@@ -32,7 +32,7 @@ public class FruitCount : MonoBehaviour
     {
         for(int i = 0; i < textFruitsQuantity.Count; i++)
         {
-            textFruitsQuantity[i].text = $" X {fruitsQuantity[i]}";
+            textFruitsQuantity[i].text = $" x {fruitsQuantity[i]}";
         }
     }
 
