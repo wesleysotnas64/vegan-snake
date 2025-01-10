@@ -11,7 +11,8 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
-        TestLevel();
+        // TestLevel();
+        Level_02();
     }
 
     private void TestLevel()
@@ -21,10 +22,43 @@ public class LevelGenerator : MonoBehaviour
         GenerateVerticalLineBushWall(-8, 6, -16);
         GenerateVerticalLineBushWall(-8, 6, 8);
 
-        GenerateGrass(new Vector2(-15,-8), new Vector2(7, 6));
+        GenerateRandomGrass(new Vector2(-15,-8), new Vector2(7, 6));
     }
 
-    public void GenerateHorizontalLineBushWall(int initX, int finalX, int heightY)
+    private void Level_01()
+    {
+        GenerateHorizontalLineBushWall(-16, 8,  7);
+        GenerateHorizontalLineBushWall(-16, 8, -9);
+        GenerateVerticalLineBushWall(-8, 6, -16);
+        GenerateVerticalLineBushWall(-8, 6, 8);
+
+        GenerateRandomGrass(new Vector2(-15,-8), new Vector2(7, 6));
+    }
+
+    private void Level_02()
+    {
+        GenerateHorizontalLineBushWall(-16, 8,  7);
+        GenerateHorizontalLineBushWall(-16, 8, -9);
+        GenerateVerticalLineBushWall(-8, 6, -16);
+        GenerateVerticalLineBushWall(-8, 6, 8);
+
+        GeneratePointBush(-10, 0);
+        GeneratePointBush(-10, 1);
+        GeneratePointBush(-9, 0);
+        GeneratePointBush(-9, 1);
+
+        GenerateRandomGrass(new Vector2(-15,-8), new Vector2(7, 6));
+    }
+
+    private void GeneratePointBush(int xPosition, int yPosition)
+    {
+        GameObject go = Instantiate(bush);
+        go.transform.position = new Vector3(xPosition, yPosition, 0);
+        go.transform.parent = transform;
+
+    }
+
+    private void GenerateHorizontalLineBushWall(int initX, int finalX, int heightY)
     {
         for(int x = initX; x <= finalX; x++)
         {
@@ -33,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
             go.transform.parent = transform;
         }
     }
-    public void GenerateVerticalLineBushWall(int initY, int finalY, int distX)
+    private void GenerateVerticalLineBushWall(int initY, int finalY, int distX)
     {
         for(int y = initY; y <= finalY; y++)
         {
@@ -43,7 +77,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void GenerateGrass(Vector2 init, Vector2 end)
+    private void GenerateRandomGrass(Vector2 init, Vector2 end)
     {
         // Percorre todo o campo
         for(int x = (int)init.x; x <= end.x; x++)
