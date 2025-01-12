@@ -71,3 +71,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Vegan Snake/Assets/Scenes/APITests.unity
+Vegan Snake/Assets/Scenes/APITests.unity.meta
+Vegan Snake/Assets/Scripts/Services/Routes.cs
+Vegan Snake/Assets/Scripts/Services/Routes.cs.meta
